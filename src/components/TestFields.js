@@ -17,8 +17,8 @@ export const Testfields = () => {
     setValid(false);
     try {
       let newPropObj = {};
-      newPropObj.rows = rowsCount;
-      newPropObj.columns = columnCount;
+      newPropObj.rows = Number(rowsCount);
+      newPropObj.columns = Number(columnCount);
       newPropObj.editable = isEditable;
       if (headers) newPropObj.headers = JSON.parse(headers);
 
@@ -61,6 +61,7 @@ export const Testfields = () => {
         aria-label="Headers"
         type="textarea"
         value={headers}
+        placeholder='["Header1","Header2",72,"Header4"]'
         onChange={(e) => setHeaders(e.target.value)}
       /></div>
   <div className="fields_col">
@@ -68,6 +69,7 @@ export const Testfields = () => {
       <textarea
         aria-label="Columns Width"
         type="textarea"
+        placeholder='[60,20,10,10]'
         value={columnsWidth}
         onChange={(e) => setColumnsWidth(e.target.value)}
       />{" "}
@@ -76,6 +78,7 @@ export const Testfields = () => {
       <textarea
         aria-label="Data"
         type="textarea"
+        placeholder='[["Row1_Cell1","Row1_Cell2","Row1_Cell3"],["Row2_Cell1","Row2_Cell2",746]]'
         value={tableData}
         onChange={(e) => setTableData(e.target.value)}
       />
